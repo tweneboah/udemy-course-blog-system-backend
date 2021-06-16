@@ -1,0 +1,14 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "Learning npm",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Emma",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.1"
+  }
+}
