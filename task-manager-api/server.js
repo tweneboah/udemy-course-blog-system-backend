@@ -7,6 +7,8 @@ const {
   fetchTask,
 } = require("./controllers/taskCtrl");
 const dbConnect = require("./config/db");
+const taskRoute = require("./routes/taskRoute");
+
 const app = express();
 
 //Db
@@ -21,19 +23,12 @@ const isLogin = (req, res, next) => {
 
 app.use(isLogin);
 //Routing
-//Get all - get
-app.get("/tasks", fetchTasks);
 
 //Fetch Single task
 app.get("/task/:taskId", fetchTask);
 //Create - Post
-app.post("/task", createTask);
+app.use("/tasks", taskRoute);
 
-//Delete post - delete
-app.delete("/task/:id", deleteTask);
-
-//Update post - delete
-app.put("/task/:taskId", updateTask);
 //Creating server
 app.listen(5000, console.log(`Server is running`));
 
